@@ -46,9 +46,7 @@ def _run_base_model_dfm(dfTrain, dfTest, folds, dfm_params):
     Xi_test, Xv_test, ids_test = data_parser.parse(df=dfTest)
 
     dfm_params["feature_size"] = fd.feat_dim
-    #print(dfm_params["feature_size"])
     dfm_params["field_size"] = len(Xi_train[0])
-    #print(dfm_params["field_size"])
 
     y_train_meta = np.zeros((dfTrain.shape[0], 1), dtype=float)
     y_test_meta = np.zeros((dfTest.shape[0], 1), dtype=float)
@@ -125,17 +123,17 @@ dfm_params = {
     "use_fm": True,
     "use_deep": True,
     "embedding_size": 8,
-    "dropout_fm": [1.0, 1.0],
-    "deep_layers": [4, 4],
-    "dropout_deep": [0.5, 0.5, 0.5],
+    "dropout_fm": [0.5, 0.5],
+    "deep_layers": [24, 24],
+    "dropout_deep": [0.3, 0.3, 0.3],
     "deep_layers_activation": tf.nn.relu,
     "epoch": 30,
     "batch_size": 1024,
-    "learning_rate": 0.001,
+    "learning_rate": 0.003,
     "optimizer_type": "adam",
     "batch_norm": 1,
     "batch_norm_decay": 0.995,
-    "l2_reg": 0.01,
+    "l2_reg": 0.02,
     "verbose": True,
     "eval_metric": gini_norm,
     "random_seed": config.RANDOM_SEED
