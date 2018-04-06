@@ -1,0 +1,1 @@
+The DeepFM model is taken wholly from https://github.com/ChenglongChen/tensorflow-DeepFM. 
